@@ -12,7 +12,7 @@ RSpec.describe "Users", type: :request do
     it 'returns a user with an array of all items associated with that user' do
       get "/users/#{user.id}"
 
-      expect(response.body).to include_json({
+      expect(response.body).to include_json([{
         id: a_kind_of(Integer),
         username: "Dwayne",
         city: "Los Angeles",
@@ -24,7 +24,7 @@ RSpec.describe "Users", type: :request do
             price: 10
           }
         ]
-      })
+      }])
     end
   end
 end
